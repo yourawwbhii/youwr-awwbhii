@@ -2,18 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For You ❤️</title>
+<title>A Question For You</title>
 
 <style>
 body{
-    background:#ffdde1;
-    font-family:Arial;
+    background:#ffe6f0;
+    font-family:Arial, sans-serif;
     text-align:center;
-    margin-top:150px;
+    margin-top:120px;
 }
 
 h1{
-    font-size:40px;
+    font-size:38px;
+    color:#ff3366;
 }
 
 button{
@@ -21,7 +22,7 @@ button{
     font-size:18px;
     margin:10px;
     border:none;
-    border-radius:8px;
+    border-radius:10px;
     cursor:pointer;
 }
 
@@ -31,37 +32,46 @@ button{
 }
 
 #no{
-    background:#ccc;
+    background:#888;
+    color:white;
 }
-
 </style>
 </head>
 
 <body>
 
-<h1>I Have a Question 😊</h1>
-<p>Will you be my friend?</p>
+<h1 id="question">Will you be my friend? 😊</h1>
 
-
-<button id="yes">Yes 💖</button>
-<button id="no">No 😢</button>
+<button id="yes">Yes 😊</button>
+<button id="no">No 😅</button>
 
 <script>
 
-const noBtn = document.getElementById("no")
+const questions = [
+"Are you sure? 🤔",
+"Maybe think again? 😊",
+"Friendship could be fun! 😄",
+"I promise I'm a good friend! 🙂",
+"Last chance... will you be my friend? 🥺"
+];
 
-noBtn.addEventListener("mouseover",()=>{
-    const x = Math.random()*window.innerWidth
-    const y = Math.random()*window.innerHeight
+let index = 0;
 
-    noBtn.style.position="absolute"
-    noBtn.style.left=x+"px"
-    noBtn.style.top=y+"px"
-})
+document.getElementById("no").onclick = function(){
 
-document.getElementById("yes").onclick=()=>{
-    document.body.innerHTML=
-    "<h1>Yayyyy ❤️</h1><p>You made my day 💕</p>"
+    if(index < questions.length){
+        document.getElementById("question").innerText = questions[index];
+        index++;
+    } else {
+        document.getElementById("question").innerText =
+        "Okay... I still hope we can be friends someday 🙂";
+    }
+
+}
+
+document.getElementById("yes").onclick = function(){
+    document.body.innerHTML =
+    "<h1>Yay! 🎉</h1><p>I'm really happy you said yes! 😊</p>";
 }
 
 </script>
